@@ -12,7 +12,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ondasonora@OndaSonora.coverage" NAME="OndaSonora Coverage Results" MODIFIED="1502137418773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" MODULE_NAME="ondasonora" />
     <SUITE FILE_PATH="coverage/ondasonora@index.coverage" NAME="OndaSonora Coverage Results" MODIFIED="1502150745755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" MODULE_NAME="ondasonora" />
-    <SUITE FILE_PATH="coverage/ondasonora@config_ru.coverage" NAME="config.ru Coverage Results" MODIFIED="1502417770768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ondasonora" />
+    <SUITE FILE_PATH="coverage/ondasonora@config_ru.coverage" NAME="config.ru Coverage Results" MODIFIED="1502419814142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ondasonora" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="ondasonora" />
@@ -22,18 +22,18 @@
       <file leaf-file-name="index.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="3" column="38" lean-forward="false" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+            <state relative-caret-position="160">
+              <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.sh" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/run.sh">
+      <file leaf-file-name="session.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/session.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+            <state relative-caret-position="421">
+              <caret line="70" column="27" lean-forward="false" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -129,7 +129,6 @@
         <option value="$PROJECT_DIR$/src/views/navbar.slim" />
         <option value="$PROJECT_DIR$/src/views/login.slim" />
         <option value="$PROJECT_DIR$/src/views/ingresa.slim" />
-        <option value="$PROJECT_DIR$/src/session.rb" />
         <option value="$PROJECT_DIR$/src/views/layout.slim" />
         <option value="$PROJECT_DIR$/src/dash.rb" />
         <option value="$PROJECT_DIR$/src/models/mongoid.yml" />
@@ -149,6 +148,7 @@
         <option value="$PROJECT_DIR$/config.ru" />
         <option value="$PROJECT_DIR$/src/index.rb" />
         <option value="$PROJECT_DIR$/run.sh" />
+        <option value="$PROJECT_DIR$/src/session.rb" />
       </list>
     </option>
   </component>
@@ -193,6 +193,17 @@
             <path>
               <item name="ondasonora" type="b2602c69:ProjectViewProjectNode" />
               <item name="ondasonora" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ondasonora" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ondasonora" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ondasonora" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ondasonora" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -261,12 +272,12 @@
       <workItem from="1502149230863" duration="1811000" />
       <workItem from="1502151063435" duration="218000" />
       <workItem from="1502151547448" duration="133000" />
-      <workItem from="1502137405096" duration="71660000" />
+      <workItem from="1502137405096" duration="72272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73822000" />
+    <option name="totallyTimeSpent" value="74434000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -510,14 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/session.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-283">
-          <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/layout.slim">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -686,18 +689,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.rb">
+    <entry file="file://$PROJECT_DIR$/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="38" lean-forward="false" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        <state relative-caret-position="16">
+          <caret line="1" column="24" lean-forward="true" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.sh">
+    <entry file="file://$PROJECT_DIR$/src/index.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        <state relative-caret-position="160">
+          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/session.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="70" column="27" lean-forward="false" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
           <folding />
         </state>
       </provider>

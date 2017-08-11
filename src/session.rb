@@ -67,8 +67,8 @@ class SessionController < BaseController
   end
 
   post '/signup' do
-    params.values.each do |v|
-      if v.blank?
+    params.each do |k, v|
+      if k != 'captures' && v.blank?
         redirect back, 'No pueden haber valores vacíos'
       end
     end
