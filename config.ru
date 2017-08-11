@@ -6,8 +6,6 @@ require 'mongoid'
 
 Mongoid.load!('src/models/mongoid.yml', :development)
 
-set :port, 3000
-
 use ProjectController
 use DashController
 use SessionController
