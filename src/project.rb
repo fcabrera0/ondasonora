@@ -1,4 +1,5 @@
 require_relative 'base'
+require 'json'
 
 class ProjectController < BaseController
   get '/proyecto/:id' do
@@ -38,6 +39,14 @@ class ProjectController < BaseController
     @project.descr = params[:descr]
     @project.save
     redirect back
+  end
+
+  post '/plans/:id' do
+    @project = Project.find(params[:id])
+    if @project.by.to_s == @user.id.to_s
+      @project.plans = JSON.parse(params[:plans])
+      @project.save
+    end
   end
 
   get '/financia' do

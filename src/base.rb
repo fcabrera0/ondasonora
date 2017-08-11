@@ -14,6 +14,7 @@ class BaseController < Sinatra::Base
       @user = User.find(@session.user_id.to_s)
     rescue
       @session = {}
+      cookies[:session] = ''
     end
   end
 end

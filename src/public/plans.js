@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        project_id: null,
         plans: [],
         doc: {
             name: '',
@@ -18,7 +19,11 @@ var app = new Vue({
             }
         },
         save: function () {
-
+            var e = {
+                plans: JSON.stringify(this.plans)
+            }
+            $.post('/plans/' + this.project_id, e,
+                (res) => console.log(res))
         }
     }
 })
