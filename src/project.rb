@@ -53,6 +53,9 @@ class ProjectController < BaseController
     if @session.blank?
       redirect '/ingresa'
     end
+    if @user.status < 1
+      redirect '/dash'
+    end
     @title = 'Empezar un proyecto'
     slim :financia
   end
@@ -61,15 +64,29 @@ class ProjectController < BaseController
     if @session.blank?
       redirect '/ingresa'
     end
-    Project.create(
-      name: params[:name],
-      cat: params[:cat].to_i,
-      flex: params[:flex] == 'true' ? true : false,
-      descr: params[:descr],
-      by: @user.id,
-      goal: params[:goal].to_i,
-      deadline: Date.parse(params[:deadline])
-    )
-    redirect '/dash'
+
+    if @user.status < 1
+      redirect '/dash'
+    end
+
+    begin
+      deadline = Date.parse(params[:deadline])
+      unless Date.today - deadline > 30
+        redirect back
+      end
+
+      Project.create(
+          name: params[:name],
+          cat: params[:cat].to_i,
+          flex: params[:flex] == 'true' ? true : false,
+          descr: params[:descr],
+          by: @user.id,
+          goal: params[:goal].to_i,
+          deadline: deadline
+      )
+      redirect '/dash'
+    rescue
+      redirect back
+    end
   end
 end

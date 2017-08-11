@@ -12,10 +12,10 @@ div.uk-container#app
             ul [uk-accordion]
               - @plans.each do |p|
                 li
-                  p.uk-accordion-title #{p.name}
+                  p.uk-accordion-title #{p[:name]}
                   div.uk-accordion-content
-                    p.text #{p.descr}
-                    h3.text $#{p.amount}
+                    p.text #{p[:descr]}
+                    h3.text $#{p[:floor]}
 
     div class="uk-width-1-3@l uk-width-1-2@m"
       div.uk-card.uk-card-default.uk-card-hover
