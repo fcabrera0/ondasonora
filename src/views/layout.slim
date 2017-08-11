@@ -1,0 +1,21 @@
+doctype HTML
+html
+  head
+    title Onda Sonora | #{@title}
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
+    link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/css/uikit.min.css"
+    link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:300" rel="stylesheet"
+    link rel="stylesheet" href="/style.css"
+
+  body
+    div#login [uk-modal]
+      div.uk-modal-dialog.uk-modal-body
+        == slim :login
+    == slim :navbar, locals: { session: @session, user: @user }
+    == yield
+
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/js/uikit.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/js/uikit-icons.min.js"

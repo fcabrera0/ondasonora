@@ -1,0 +1,11 @@
+form [method="post" action="/login"]
+  div.uk-text-center
+    h2.title Inicio de sesión
+    div.uk-margin
+      input.uk-input [name="username" placeholder="Nombre de usuario" required]
+    div.uk-margin
+      input.uk-input [name="password" type="password" placeholder="Contraseña" required]
+    div.uk-text-center
+      input.uk-button.uk-button-primary type="submit" value="Ingresar"
+      | &nbsp;
+      a.uk-button.uk-button-default href="/registro" Registrarme

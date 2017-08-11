@@ -1,0 +1,40 @@
+div.uk-container
+  div.uk-flex-center [uk-grid]
+    div class="uk-width-1-3@l uk-width-1-2@m"
+      form [method="post" action="/financia"]
+        div.uk-card.uk-card-default.uk-card-hover
+          div.uk-card-header
+            h4.title Financia tu proyecto
+          div.uk-card-body
+            ul [uk-accordion]
+              li.uk-open
+                p.uk-accordion-title Términos de uso
+                div.uk-accordion-content
+
+              li
+                p.uk-accordion-title Cuentanos sobre tu proyecto
+                div.uk-accordion-content
+                  div.uk-margin
+                    input.uk-input [name="name" placeholder="Nombre de tu proyecto" required]
+                    div.uk-margin
+                      select.uk-select [name="cat" required]
+                        option Categoría
+                        option value="0" Música
+                        option value="1" Audiovisual
+                        option value="2" Literatura
+                        option value="3" Artes visuales
+                    div.uk-margin
+                      select.uk-select [name="flex" required]
+                        option value="true" Flexible
+                        option value="false" Todo o nada
+                    div.uk-margin
+                      input.uk-input [name="goal" type="number" min="0" placeholder="Meta (en pesos chilenos)" required]
+                    div.uk-margin
+                      input.uk-input [name="deadline" placeholder="Fecha limíte" required]
+                    div.uk-margin
+                      textarea.uk-textarea [name="descr" placeholder="Descripción del proyecto" required]
+            div.uk-margin
+              input.uk-checkbox [type="checkbox" required]
+              | &nbsp;He leído y acepto los términos y de uso.
+          div.uk-card-footer
+            input.uk-button.uk-button-primary.uk-width-1-1 type="submit" value="Enviar a revisión"

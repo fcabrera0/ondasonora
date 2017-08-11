@@ -1,0 +1,20 @@
+nav.uk-navbar-container.uk-navbar-transparent uk-navbar="mode: click"
+  div.uk-navbar-left
+    ul.uk-navbar-nav
+      li: a href="/" Inicio
+  div.uk-navbar-right
+    - if session.blank?
+      div.uk-navbar-item
+        a.uk-button.uk-button-primary href="#" uk-toggle="target: #login"
+          i.icon.fa.fa-sign-in.fa-fw.fa-lg
+          | &nbsp;Ingresar
+    - else
+      ul.uk-navbar-nav
+        li
+          a href="/dash"
+            i.icon.fa.fa-user-circle.fa-fw.fa-lg
+            | &nbsp;#{user.profile[:fullname]}
+        li
+          a href="/logout"
+            i.icon.fa.fa-sign-out.fa-fw
+            | &nbsp;Salir

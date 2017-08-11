@@ -1,0 +1,34 @@
+div.uk-text-center
+  h2.title Regístrate en Onda Sonora
+  h3.subtitle para financiar tu proyecto o colaborar en el de otros
+
+div.uk-flex-center [uk-grid]
+  div.uk-width-1-3
+    form [method="post" action="/signup"]
+      div.uk-margin
+        input.uk-input [name="fullname" placeholder="Nombre completo" required]
+      div.uk-margin
+        input.uk-input [name="rut" placeholder="RUT o pasaporte" required]
+      div.uk-margin
+        select.uk-select [name="region" required]
+          option Selecciona una región
+          - @region.each do |r|
+            option value="#{r[:value]}" #{r[:name]}
+      div.uk-margin
+        input.uk-input [name="city" placeholder="Ciudad" required]
+      div.uk-margin
+        input.uk-input [name="address" placeholder="Dirección" required]
+      hr
+      div.uk-margin
+        input.uk-input [name="username" placeholder="Nombre de usuario" required]
+      div.uk-margin
+        input.uk-input [name="email" type="email" placeholder="Correo electrónico" required]
+      div.uk-margin
+        input.uk-input [name="password" type="password" placeholder="Contraseña" required]
+      div.uk-margin
+        input.uk-checkbox [type="checkbox" required]
+        | &nbsp;He leído y acepto los
+        a href="#" &nbsp;términos y condiciones de uso
+        | .
+      div.uk-text-center
+        input.uk-button.uk-button-primary type="submit" value="Empezar a usar Onda Sonora"

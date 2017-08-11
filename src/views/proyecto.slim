@@ -1,0 +1,47 @@
+div.uk-container
+  div.uk-flex-center [uk-grid]
+    div class="uk-width-1-2@m"
+      div.uk-card.uk-card-default
+        div.uk-card-body
+          p #{@project.descr}
+    div class="uk-width-1-3@l uk-width-1-2@m"
+      div.uk-card.uk-card-default
+        div.uk-card-body
+          p.meta #{@by.profile[:fullname]} <small>@#{@by.username}</small>
+          h3.title #{@project.name}
+          hr
+          div [uk-grid]
+            div.uk-width-1-2
+              small Recaudado
+              br
+              h4.text $#{@project.current}
+            div.uk-width-1-2.uk-text-right
+              small Necesario
+              br
+              h4.text $#{@project.goal}
+          hr
+          div [uk-grid]
+            div.uk-width-1-3
+              h4.text #{@project.current}%
+              small financiado
+            div.uk-width-1-3.uk-text-center
+              small Faltan
+              br
+              h4.text $#{@project.goal - @project.current}
+            div.uk-width-1-3.uk-text-right
+              h4.text #{(@project.deadline - @project.creation.to_date).to_i}
+              small días restantes
+          hr
+          ul [uk-accordion]
+            - @plans.each do |p|
+              li
+                small.uk-accordion-title Sobre $#{p[:floor]}
+                div.uk-accordion-content
+                  h4.title #{p[:name]}
+                  p.subtitle #{p[:descr]}
+                hr
+        div.uk-card-footer
+          - if @user && @project.by.to_s == @user.id.to_s
+            a.uk-button.uk-button-primary.uk-width-1-1 href="/dash/proyecto/#{@project.id.to_s}" Editar
+          - else
+            a.uk-button.uk-button-primary.uk-width-1-1 href="/donar/proyecto/#{@project.id.to_s}" Donar
