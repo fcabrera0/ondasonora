@@ -1,27 +1,27 @@
 var app = new Vue({
     el: '#app',
     data: {
+        project_id: null,
         items: [],
-        current: null,
         method: 'none'
     },
     computed: {
        total: function () {
            var sum = 0
-           this.items.forEach(function(e) { sum += e.amount * e.quantity })
+           this.items.forEach(function(e) { sum += e.floor * e.quantity })
            return sum
        }
     },
     methods: {
         pay: function () {
-
-        },
-        add: function (e) {
-            this.items.push(e)
-        },
-        remove: function (e) {
-            var index = this.items.indexOf(e)
-            this.items.splice(index, 1)
+            if (this.total <= 0 || this.method === 'none') return
+            $.post('/pay/' + this.project_id, {
+                items: this.items,
+                method: this.method,
+                amount: this.total
+            }, (res) => {
+                console.log(res)
+            })
         }
     }
 })

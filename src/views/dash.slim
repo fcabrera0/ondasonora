@@ -84,9 +84,11 @@ div.uk-flex-center [uk-grid]
             div.uk-margin
               p.text Rut: #{@user.rut}
               - if @user.status > 0
-                p.text Habilitado para crear proyectos
-              - else
-                p.text No habilitado para crear proyectos
+                p.text Habilitado para crear proyectos y donar
+              - if @user.status == 0
+                p.text Habilitado para donar
+              - if @user.status < 0
+                p.text Tu cuenta está bajo revisión por abuso a las normas de convivencia
             div.uk-margin
               input.uk-input [name="email" type="email" placeholder="Correo electrónico" value="#{@user.email}" required]
             div.uk-margin

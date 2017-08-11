@@ -12,7 +12,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ondasonora@OndaSonora.coverage" NAME="OndaSonora Coverage Results" MODIFIED="1502137418773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" MODULE_NAME="ondasonora" />
     <SUITE FILE_PATH="coverage/ondasonora@index.coverage" NAME="OndaSonora Coverage Results" MODIFIED="1502150745755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" MODULE_NAME="ondasonora" />
-    <SUITE FILE_PATH="coverage/ondasonora@config_ru.coverage" NAME="config.ru Coverage Results" MODIFIED="1502430893177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ondasonora" />
+    <SUITE FILE_PATH="coverage/ondasonora@config_ru.coverage" NAME="config.ru Coverage Results" MODIFIED="1502472225363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ondasonora" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="ondasonora" />
@@ -39,41 +39,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dash.slim" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dash.slim" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/dash.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="84" column="38" lean-forward="false" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
+            <state relative-caret-position="266">
+              <caret line="88" column="24" lean-forward="false" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project.rb">
+      <file leaf-file-name="donar.slim" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/donar.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="74" column="21" lean-forward="true" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+            <state relative-caret-position="149">
+              <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/user.rb">
+      <file leaf-file-name="payments.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/public/payments.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="320">
+              <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dash.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dash.rb">
+      <file leaf-file-name="payment.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/payment.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="26" column="32" lean-forward="false" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+            <state relative-caret-position="309">
+              <caret line="57" column="33" lean-forward="true" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -91,7 +91,6 @@
         <option value="$PROJECT_DIR$/src/models/schema.rb" />
         <option value="$PROJECT_DIR$/src/views/registro.slim" />
         <option value="$PROJECT_DIR$/src/models/projects.rb" />
-        <option value="$PROJECT_DIR$/src/models/user.rb" />
         <option value="$PROJECT_DIR$/mongoid.yml" />
         <option value="$PROJECT_DIR$/src/models/sessions.rb" />
         <option value="$PROJECT_DIR$/src/views/navbar.slim" />
@@ -101,7 +100,6 @@
         <option value="$PROJECT_DIR$/src/dash.rb" />
         <option value="$PROJECT_DIR$/src/models/mongoid.yml" />
         <option value="$PROJECT_DIR$/src/models/plan.rb" />
-        <option value="$PROJECT_DIR$/src/public/style.css" />
         <option value="$PROJECT_DIR$/src/views/inicio.slim" />
         <option value="$PROJECT_DIR$/src/models/project.rb" />
         <option value="$PROJECT_DIR$/src/views/error.slim" />
@@ -109,18 +107,20 @@
         <option value="$PROJECT_DIR$/src/index.rb" />
         <option value="$PROJECT_DIR$/run.sh" />
         <option value="$PROJECT_DIR$/src/session.rb" />
-        <option value="$PROJECT_DIR$/src/payment.rb" />
         <option value="$PROJECT_DIR$/config.ru" />
         <option value="$PROJECT_DIR$/src/base.rb" />
         <option value="$PROJECT_DIR$/src/models/payment.rb" />
-        <option value="$PROJECT_DIR$/src/public/payments.js" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/src/views/proyecto.slim" />
         <option value="$PROJECT_DIR$/src/public/plans.js" />
         <option value="$PROJECT_DIR$/src/views/editar_proyecto.slim" />
-        <option value="$PROJECT_DIR$/src/views/donar.slim" />
         <option value="$PROJECT_DIR$/src/project.rb" />
+        <option value="$PROJECT_DIR$/src/models/user.rb" />
         <option value="$PROJECT_DIR$/src/views/dash.slim" />
+        <option value="$PROJECT_DIR$/src/public/style.css" />
+        <option value="$PROJECT_DIR$/src/views/donar.slim" />
+        <option value="$PROJECT_DIR$/src/payment.rb" />
+        <option value="$PROJECT_DIR$/src/public/payments.js" />
       </list>
     </option>
   </component>
@@ -256,12 +256,12 @@
       <workItem from="1502149230863" duration="1811000" />
       <workItem from="1502151063435" duration="218000" />
       <workItem from="1502151547448" duration="133000" />
-      <workItem from="1502137405096" duration="82455000" />
+      <workItem from="1502137405096" duration="88070000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84617000" />
+    <option name="totallyTimeSpent" value="90232000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -545,14 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/financia.slim">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -589,22 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/payments.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/payment.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -657,14 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/donar.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.ru">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -681,18 +649,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/payment.rb">
+    <entry file="file://$PROJECT_DIR$/src/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        <state relative-caret-position="144">
+          <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user.rb">
+    <entry file="file://$PROJECT_DIR$/src/views/dash.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="266">
+          <caret line="88" column="24" lean-forward="false" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -705,10 +673,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/dash.slim">
+    <entry file="file://$PROJECT_DIR$/src/public/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="84" column="38" lean-forward="false" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
+        <state relative-caret-position="272">
+          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/donar.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/payment.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/payments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/payment.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="57" column="33" lean-forward="true" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
           <folding />
         </state>
       </provider>

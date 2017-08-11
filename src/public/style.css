@@ -14,6 +14,14 @@
     margin-bottom: -1px;
 }
 
+.uk-card-default.panel-expanded .uk-card-header {
+    border-bottom: 0px;
+}
+
+.uk-card-default.panel-expanded .uk-card-body {
+    padding: 0px 0px;
+}
+
 .uk-card-default.panel .uk-card-body {
     padding: 20px 0px;
 }
