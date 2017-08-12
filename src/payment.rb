@@ -1,8 +1,6 @@
 require_relative 'base'
 require 'khipu'
-require 'paypal-rest-sdk'
-
-include PayPal::SDK::REST
+require 'paypal-sdk-rest'
 
 PayPal::SDK::REST.set_config(
     :mode => 'sandbox',
@@ -10,7 +8,7 @@ PayPal::SDK::REST.set_config(
     :client_secret => 'ECEr2iOvx_9htoBG-_4co8tNJ0AoN11IK_sAUiSssApbmz1UjremQHK7efKUYyMrS3iGMFUQATdI79wI'
 )
 
-class Khipu
+module Khipu
   @@khipu_conf = {
       :id => '119057',
       :secret => '66c795a1c246857cc33f8a1a3b6058a2c58ce7eb'
@@ -18,11 +16,18 @@ class Khipu
 
   def self.get (amount, detail, project, user)
     client = Khipu.create_khipu_api(@@khipu_conf[:id], @@khipu_conf[:secret])
+
     data = {
-        subject: "Donación al proyecto #{project[:name]}",
-        body: detail.map { |e| "#{e[:name]}: #{e[:quantity]} x $#{e[:floor]}" }.join("\n"),
+        subject: "Donación al proyecto #{project.name}",
+        body: -> {
+          text = ''
+          detail.each do |e|
+            text += "#{e[:name]}: #{e[:quantity]} x $#{e[:floor]}\n"
+          end
+          text
+        }.call,
         amount: amount.to_s,
-        email: user[:email]
+        email: user.email
     }
 
     c = client.create_payment_url(data)
@@ -34,9 +39,44 @@ class Khipu
   end
 end
 
-class PayPal
-  def self.get (amount, detail, project, user)
-    
+module PayPal
+  def self.get (amount, detail, project, user, request)
+    data = {
+        :intent => "sale",
+        :payer => {
+            :payment_method => "paypal"
+        },
+        :redirect_urls => {
+            :return_url => "#{request.base_url}/dash",
+            :cancel_url => "#{request.base_url}/dash"
+        },
+        :transactions => [{
+                              :item_list=> {
+                                  :items => detail.map { |e| {
+                                                 :name => e[:name],
+                                                 :sku => "item",
+                                                 :price => e[:floor],
+                                                 :currency => "USD",
+                                                 :quantity => e[:quantity]
+                                             } }
+                              },
+                              :amount => {
+                                  :currency => "USD",
+                                  :total => amount
+                              },
+                              :description => "Donación al proyecto #{project[:name]}"
+                          }]
+    }
+    payment = PayPal::SDK::REST::Payment.new(data)
+
+    payment.create
+
+    pay = payment.links.find { |e| e if e.method == 'REDIRECT' }
+
+    {
+        :url => pay.href,
+        :id => payment.id
+    }
   end
 end
 
@@ -63,6 +103,8 @@ class PaymentController < BaseController
   end
 
   post '/pay/:id' do
+    @json = JSON.parse(request.body.read, :symbolize_names => true)
+
     return {
         status: 1,
         msg: 'Sesión expirada'
@@ -73,7 +115,7 @@ class PaymentController < BaseController
     return {
         status: 2,
         msg: 'Método de pago inválido'
-    }.to_json if not ['khipu', 'paypal'].include? (params[:method])
+    }.to_json if not ['khipu', 'paypal'].include? (@json[:method])
 
     return {
         status: 3,
@@ -86,14 +128,26 @@ class PaymentController < BaseController
     }.to_json if @user.status < 0
 
     payment = -> {
-      if params[:method] == 'khipu'
-        Khipu.get(params[:amount], params[:items], @project.map, @user.map)
+      if @json[:method] == 'khipu'
+        Khipu.get(@json[:amount], @json[:items], @project, @user)
       else
-        PayPal.get(params[:amount], params[:items], @project.map, @user.map)
+        PayPal.get(@json[:amount], @json[:items], @project, @user, request)
       end
-    }
+    }.call
 
+    Payment.create(
+               user_id: @user.id,
+               project_id: @project.id,
+               items: @json[:items],
+               amount: @json[:amount],
+               transaction: {
+                   id: payment[:id],
+                   url: payment[:url],
+                   method: @json[:method]
+               }
+    )
 
+    content_type :json
     {
         status: 0,
         data: payment

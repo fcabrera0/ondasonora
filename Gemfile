@@ -5,6 +5,6 @@ source 'https://rubygems.org' do
   gem 'json'
   gem 'mongoid'
   gem 'slim'
-  gem 'paypal-rest-sdk'
+  gem 'paypal-sdk-rest'
   gem 'khipu'
 end

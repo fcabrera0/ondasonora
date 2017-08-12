@@ -60,7 +60,7 @@ class SessionController < BaseController
 
   get '/ingresa' do
     unless @session.blank?
-      redirect back
+      redirect params[:r] || '/'
     end
     @title = 'Ingreso'
     slim :ingresa
@@ -82,7 +82,8 @@ class SessionController < BaseController
     s = SecureRandom.base64
     p = params[:password] + s
 
-    User.create(
+    begin
+      User.create(
         username: params[:username],
         email: params[:email],
         rut: params[:rut],
@@ -96,8 +97,10 @@ class SessionController < BaseController
           city: params[:city],
           address: params[:address]
         }
-    )
-
-    redirect '/'
+      )
+      redirect '/ingresa'
+    rescue
+      redirect back
+    end
   end
 end

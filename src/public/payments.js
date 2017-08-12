@@ -15,12 +15,23 @@ var app = new Vue({
     methods: {
         pay: function () {
             if (this.total <= 0 || this.method === 'none') return
-            $.post('/pay/' + this.project_id, {
-                items: this.items,
-                method: this.method,
-                amount: this.total
-            }, (res) => {
-                console.log(res)
+            var pay = window.open('', '_blank')
+            axios.post(
+                `/pay/${this.project_id}`,
+                {
+                    items: this.items,
+                    method: this.method,
+                    amount: this.total
+                }
+            ).then((res) => {
+                if (res.data.status === 0) {
+                    location.href = "/dash"
+                    pay.location.href = res.data.data.url
+                }
+                else {
+                    UIkit.notification(res.data.msg);
+                    pay.close()
+                }
             })
         }
     }

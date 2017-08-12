@@ -49,28 +49,30 @@ div.uk-flex-center [uk-grid]
             i.icon.fa.fa-exclamation-circle.fa-fw
         ul.uk-switcher
           li
-            ul.uk-list.uk-list-stripped
+            ul.uk-list.uk-list-striped
               - @payments.each do |p|
                 li
-                  p.text #{p.name}
+                  p.text #{Project.find(p.project_id.to_s).name}
+                  - p.items.each do |e|
+                    small.text #{e[:quantity]} x #{e[:name]} = $#{e[:floor] * e[:quantity]}
                   h4.text $#{p.amount}
           li
             ul.uk-list.uk-list-stripped
               - @payments.find_by(status: 1) do |p|
                 li
-                  p.text #{p.name}
+                  p.text #{Project.find(p.project_id.to_s).name}
                   h4.text $#{p.amount}
           li
             ul.uk-list.uk-list-stripped
               - @payments.find_by(status: 0) do |p|
                 li
-                  p.text #{p.name}
+                  p.text #{Project.find(p.project_id.to_s).name}
                   h4.text $#{p.amount}
           li
             ul.uk-list.uk-list-stripped
               - @payments.find_by(status: -1) do |p|
                 li
-                  p.text #{p.name}
+                  p.text #{Project.find(p.project_id.to_s).name}
                   h4.text $#{p.amount}
 
 

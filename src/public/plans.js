@@ -19,11 +19,16 @@ var app = new Vue({
             }
         },
         save: function () {
-            var e = {
-                plans: JSON.stringify(this.plans)
-            }
-            $.post('/plans/' + this.project_id, e,
-                (res) => console.log(res))
+            axios.post(
+                `/plans/${this.project_id}`,
+                {
+                    plans: this.plans
+                }
+            ).then((res) => {
+                console.log(res.data)
+                if (res.data.status === 0) UIkit.notification("Guardado con éxito");
+                else UIkit.notification(res.data.msg);
+            })
         }
     }
 })

@@ -42,11 +42,27 @@ class ProjectController < BaseController
   end
 
   post '/plans/:id' do
+    @json = JSON.parse(request.body.read, :symbolize_names => true)
     @project = Project.find(params[:id])
-    if @project.by.to_s == @user.id.to_s
-      @project.plans = JSON.parse(params[:plans])
-      @project.save
+
+    return {
+        status: 1,
+        msg: 'Tu sesión expiró'
+    }.to_json if @session.blank?
+
+    unless @project && @project.by.to_s == @user.id.to_s
+      return {
+          status: 2,
+          msg: 'No se pudo validar tu sesión, intenta mas tarde'
+      }.to_json
     end
+
+    @project.plans = @json[:plans]
+    @project.save
+
+    {
+        status: 0
+    }.to_json
   end
 
   get '/financia' do
@@ -71,7 +87,7 @@ class ProjectController < BaseController
 
     begin
       deadline = Date.parse(params[:deadline])
-      unless Date.today - deadline > 30
+      unless deadline - Date.today  > 30
         redirect back
       end
 
