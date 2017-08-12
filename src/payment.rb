@@ -1,14 +1,42 @@
 require_relative 'base'
+require 'khipu'
+require 'paypal-rest-sdk'
+
+include PayPal::SDK::REST
+
+PayPal::SDK::REST.set_config(
+    :mode => 'sandbox',
+    :client_id => 'AaEdV45aJKGRKa8031wUK5utd-p7LEgzCP3W7XGcg1MQPEYdPBSFScYT-yROH12bV3EwG67nXnLUHcYS',
+    :client_secret => 'ECEr2iOvx_9htoBG-_4co8tNJ0AoN11IK_sAUiSssApbmz1UjremQHK7efKUYyMrS3iGMFUQATdI79wI'
+)
 
 class Khipu
-  def self.get (amount, detail)
+  @@khipu_conf = {
+      :id => '119057',
+      :secret => '66c795a1c246857cc33f8a1a3b6058a2c58ce7eb'
+  }
 
+  def self.get (amount, detail, project, user)
+    client = Khipu.create_khipu_api(@@khipu_conf[:id], @@khipu_conf[:secret])
+    data = {
+        subject: "Donación al proyecto #{project[:name]}",
+        body: detail.map { |e| "#{e[:name]}: #{e[:quantity]} x $#{e[:floor]}" }.join("\n"),
+        amount: amount.to_s,
+        email: user[:email]
+    }
+
+    c = client.create_payment_url(data)
+
+    {
+        :url => c['url'],
+        :id => c['id']
+    }
   end
 end
 
 class PayPal
-  def self.get (amount, detail)
-
+  def self.get (amount, detail, project, user)
+    
   end
 end
 
@@ -59,9 +87,9 @@ class PaymentController < BaseController
 
     payment = -> {
       if params[:method] == 'khipu'
-        Khipu.get(params[:amount], params[:items])
+        Khipu.get(params[:amount], params[:items], @project.map, @user.map)
       else
-        PayPal.get(params[:amount], params[:items])
+        PayPal.get(params[:amount], params[:items], @project.map, @user.map)
       end
     }
 
