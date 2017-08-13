@@ -1,11 +1,12 @@
-form [method="post" action="/login"]
-  div.uk-text-center
+div.uk-text-center#login
+  form action="javascript:void(0);" onsubmit="login.login(); return false;"
     h2.title Inicio de sesión
     div.uk-margin
-      input.uk-input [name="username" placeholder="Nombre de usuario" required]
+      input.uk-input [v-model="username" placeholder="Nombre de usuario"]
     div.uk-margin
-      input.uk-input [name="password" type="password" placeholder="Contraseña" required]
+      input.uk-input [v-model="password" type="password" placeholder="Contraseña"]
     div.uk-text-center
-      input.uk-button.uk-button-primary type="submit" value="Ingresar"
+      input.uk-button.uk-button-primary [type="submit" value="Ingresar"]
       | &nbsp;
       a.uk-button.uk-button-default href="/registro" Registrarme
+script src="/login.js"

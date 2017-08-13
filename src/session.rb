@@ -34,28 +34,47 @@ class SessionController < BaseController
   end
 
   post '/login' do
-    unless @session.blank?
-      redirect back
+    return {
+      status: 1,
+      msg: ''
+    }.to_json if not @session.blank?
+
+    @json = JSON.parse(request.body.read, :symbolize_names => true)
+    ret = {
+        status: 0
+    }
+
+    if @json[:username].blank? || @json[:password].blank?
+      ret = {
+          status: 2,
+          msg: 'Credenciales vacías'
+      }
     end
 
     begin
-      User.find_by(username: params[:username]) do |u|
+      User.find_by(username: @json[:username]) do |u|
         p = u.passwd
-        if p[:hash] == Digest::SHA2.new(512).hexdigest(params[:password] + p[:salt])
+        if p[:hash] == Digest::SHA2.new(512).hexdigest(@json[:password] + p[:salt])
           Session.create(
-              user_id: u._id,
+              user_id: u.id,
               ip: request.ip
           ) do |doc|
-            cookies[:session] = doc._id.to_s
+            cookies[:session] = doc.id.to_s
           end
         else
-          redirect back, 'Contraseña incorrecta'
+          ret = {
+              status: 3,
+              msg: 'Contraseña incorrecta'
+          }
         end
       end
     rescue
-      redirect back, 'Error al iniciar sesión'
+      ret = {
+          status: 4,
+          msg: 'Error al iniciar sesión'
+      }
     end
-    redirect back
+    return ret.to_json
   end
 
   get '/ingresa' do
