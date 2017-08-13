@@ -9,6 +9,7 @@ class BaseController < Sinatra::Base
   helpers Sinatra::Cookies
 
   before do
+    @path = request.path_info
     begin
       @session = Session.find(cookies[:session])
       @user = User.find(@session.user_id.to_s)

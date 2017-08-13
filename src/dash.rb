@@ -3,7 +3,7 @@ require_relative 'base'
 class DashController < BaseController
   get '/dash' do
     if @session.blank?
-      redirect '/ingresa'
+      redirect '/ingresa?r=/dash'
     end
     @title = 'Dashboard'
     @region = [
@@ -30,7 +30,7 @@ class DashController < BaseController
 
   post '/dash/perfil' do
     if @session.blank?
-      redirect '/ingresa'
+      redirect '/ingresa?r=/dash/perfil'
     end
     @user.email = params[:email]
     @user.profile[:region] = params[:region]

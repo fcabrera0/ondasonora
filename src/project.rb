@@ -19,7 +19,7 @@ class ProjectController < BaseController
       redirect '/dash'
     end
     if @session.blank? || @project.by.to_s != @user.id.to_s
-      redirect '/ingresa'
+      redirect '/dash/proyecto/:id'
     end
     @plans = @project.plans || []
     @payments = Payment.where(project_id: @project.id, state: 1)
@@ -33,7 +33,7 @@ class ProjectController < BaseController
       redirect '/error'
     end
     if @session.blank? || @project.by.to_s != @user.id.to_s
-      redirect '/ingresa'
+      redirect "/ingresa?r=/dash/proyecto/#{params[:id]}"
     end
 
     @project.descr = params[:descr]
@@ -67,7 +67,7 @@ class ProjectController < BaseController
 
   get '/financia' do
     if @session.blank?
-      redirect '/ingresa'
+      redirect '/ingresa?r=/financia'
     end
     if @user.status < 1
       redirect '/dash'
@@ -78,7 +78,7 @@ class ProjectController < BaseController
 
   post '/financia' do
     if @session.blank?
-      redirect '/ingresa'
+      redirect '/ingresa?r=/financia'
     end
 
     if @user.status < 1

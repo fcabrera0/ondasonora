@@ -78,9 +78,11 @@ class SessionController < BaseController
   end
 
   get '/ingresa' do
+    print request.path_info
     unless @session.blank?
       redirect params[:r] || '/'
     end
+    @redir = params[:r]
     @title = 'Ingreso'
     slim :ingresa
   end

@@ -83,7 +83,7 @@ end
 class PaymentController < BaseController
   get '/donar/proyecto/:id' do
     if @session.blank?
-      redirect '/ingresa'
+      redirect "/ingresa?r=/donar/proyecto/#{params[:id]}"
     end
 
     @project = Project.find(params[:id])
