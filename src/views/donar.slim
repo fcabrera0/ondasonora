@@ -29,14 +29,11 @@ div.uk-container#app
                     <p class="text">{{ i.name }}</p>
                   div.uk-width-auto
                     input.uk-input.uk-form-width-xsmall.uk-form-small type="number" v-model.number="i.quantity"
-            select.uk-select v-model="method"
-              option value="none" Selecciona un método de pago
-              option value="khipu" Khipu
-              option value="paypal" PayPal
           div.uk-text-center
             <h4 class="text">Total: ${{ total }}</h4>
         div.uk-card-footer
-          button.uk-button.uk-button-primary.uk-width-1-1 [@click="pay"] Pagar
+          button.uk-button.uk-button-primary.uk-width-1-2 [@click="pay('khipu')"] Pagar con Khipu
+          button.uk-button.uk-button-primary.uk-width-1-2 [@click="pay('paypal')"] Pagar con PayPal
 script src="/payments.js"
 javascript:
   app.project_id = "#{@project.id.to_s}"

@@ -13,14 +13,13 @@ var app = new Vue({
        }
     },
     methods: {
-        pay: function () {
-            if (this.total <= 0 || this.method === 'none') return
+        pay: function (method) {
             var pay = window.open('', '_blank')
             axios.post(
                 `/pay/${this.project_id}`,
                 {
                     items: this.items,
-                    method: this.method,
+                    method: method,
                     amount: this.total
                 }
             ).then((res) => {
