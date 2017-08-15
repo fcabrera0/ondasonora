@@ -12,7 +12,9 @@ showcase = new Vue({
       filtered_projects: function () {
         return this.projects.filter((p) => {
             var matchCat = this.filter.cat === 'none' ? true : p.cat === this.filter.cat
-            return p.name.includes(this.filter.q) && matchCat
+            var matchName = p.name.toLowerCase().includes(this.filter.q.toLowerCase())
+            var matchDescr = p.descr.toLowerCase().includes(this.filter.q.toLowerCase())
+            return (matchName || matchDescr) && matchCat
         })
       }
     }
