@@ -5,7 +5,7 @@ class IndexController < BaseController
   get '/' do
     @title = 'Inicio'
     @projects = Project.where(status: 1)
-    @payments = Payment.where(status: 1)
+    @payments = Payment.find_by(status: 1)
     slim :inicio
   end
 

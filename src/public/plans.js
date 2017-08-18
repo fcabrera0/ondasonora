@@ -18,6 +18,9 @@ var app = new Vue({
                 floor: 0
             }
         },
+        remove: function(i) {
+            this.plans.splice(i, 1)
+        },
         save: function () {
             axios.post(
                 `/plans/${this.project_id}`,

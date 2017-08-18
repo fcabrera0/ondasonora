@@ -1,6 +1,6 @@
 div.uk-container#app
   div.uk-flex-center [uk-grid]
-    div class="uk-width-1-3@l uk-width-1-2@m"
+    div class="uk-width-1-3@m uk-width-1-2@s"
       form [method="post"]
         div.uk-card.uk-card-default.uk-card-hover
           div.uk-card-header
@@ -35,13 +35,13 @@ div.uk-container#app
                   div.uk-accordion-content
                     p.text Monto: $#{p.amount}
                     p.text Método: $#{p.method}
-    div class="uk-width-1-3@l uk-width-1-2@m"
+    div class="uk-width-1-3@m uk-width-1-2@s"
       div.uk-card.uk-card-default.uk-card-hover
         div.uk-card-header
           p.title Modificar recompensas
         div.uk-card-body
           ul [uk-accordion]
-            li v-for="p in plans"
+            li v-for="(p, i) in plans"
               <h3 class="uk-accordion-title">{{ p.name }}</h3>
               div.uk-accordion-content
                 div.uk-margin
@@ -50,6 +50,8 @@ div.uk-container#app
                   input.uk-input [type="number" v-model.number="p.floor"]
                 div.uk-margin
                   input.uk-input v-model="p.descr"
+                div.uk-text-right
+                  button.uk-button.uk-button-default [@click="remove(i)"] Quitar
             li.uk-open
               <h3 class="uk-accordion-title">{{ doc.name || 'Nueva recompensa' }}</h3>
               div.uk-accordion-content

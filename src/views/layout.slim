@@ -11,6 +11,7 @@ html
     script src="https://unpkg.com/axios/dist/axios.min.js"
     /script src="https://unpkg.com/vue@2.4.2/dist/vue.min.js"
     script src="https://unpkg.com/vue"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 
   body
     div#login [uk-modal]
@@ -19,7 +20,6 @@ html
     == slim :navbar, locals: { session: @session, user: @user }
     == yield
 
-    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/js/uikit.min.js"
     script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/js/uikit-icons.min.js"
     script src="/login.js"

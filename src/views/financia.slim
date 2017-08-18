@@ -9,7 +9,7 @@ div.uk-container
             ul [uk-accordion]
               li.uk-open
                 p.uk-accordion-title Términos de uso
-                div.uk-accordion-content
+                div.uk-accordion-content#eula
               li
                 p.uk-accordion-title Cuentanos sobre tu proyecto
                 div.uk-accordion-content
@@ -37,3 +37,9 @@ div.uk-container
               | &nbsp;He leído y acepto los términos y de uso.
           div.uk-card-footer
             input.uk-button.uk-button-primary.uk-width-1-1 type="submit" value="Enviar a revisión"
+script src="/markdown.min.js"
+
+javascript:
+  $.get('/eula.md', (text) => {
+    $('#eula').html(markdown.toHTML(text))
+  })
