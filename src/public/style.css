@@ -1,3 +1,7 @@
+#paypal-button {
+    background-image: url('https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-150px.png');
+}
+
 *:not(.icon) {
     font-family: "Open Sans" !important;
 }

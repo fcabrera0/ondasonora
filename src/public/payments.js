@@ -13,6 +13,9 @@ var app = new Vue({
        }
     },
     methods: {
+        modify: function (i, n) {
+            i.quantity = Math.max(0, i.quantity + n);
+        },
         pay: function (method) {
             var pay = window.open('', '_blank')
             axios.post(
