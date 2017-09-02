@@ -2,7 +2,7 @@ app = new Vue({
     el: '#app',
     data: {
         redirect: null,
-        username: null,
+        email: null,
         password: null
     },
     methods: {
@@ -10,7 +10,7 @@ app = new Vue({
             axios.post(
                 '/login',
                 {
-                    username: this.username,
+                    email: this.email,
                     password: this.password
                 }
             ).then((res) => {

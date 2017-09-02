@@ -23,8 +23,18 @@ class DashController < BaseController
         { value: 11, name: 'Aysén' },
         { value: 12, name: 'Magallanes' },
     ]
-    @payments = Payment.where(user_id: BSON::ObjectId.from_string(@user.id))
-    @projects = Project.where(by: BSON::ObjectId.from_string(@user.id))
+    begin
+      @payments = Payment.where(user_id: BSON::ObjectId.from_string(@user.id))
+    rescue
+      @payments = []
+    end
+
+    begin
+      @projects = Project.where(by: BSON::ObjectId.from_string(@user.id))
+    rescue
+      @projects = []
+    end
+
     slim :dash
   end
 

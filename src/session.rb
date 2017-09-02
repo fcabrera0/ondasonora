@@ -44,7 +44,7 @@ class SessionController < BaseController
         status: 0
     }
 
-    if @json[:username].blank? || @json[:password].blank?
+    if @json[:email].blank? || @json[:password].blank?
       ret = {
           status: 2,
           msg: 'Credenciales vacías'
@@ -52,7 +52,7 @@ class SessionController < BaseController
     end
 
     begin
-      User.find_by(username: @json[:username]) do |u|
+      User.find_by(email: @json[:email]) do |u|
         p = u.passwd
         if p[:hash] == Digest::SHA2.new(512).hexdigest(@json[:password] + p[:salt])
           Session.create(
