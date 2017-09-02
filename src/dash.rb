@@ -23,6 +23,7 @@ class DashController < BaseController
         { value: 11, name: 'Aysén' },
         { value: 12, name: 'Magallanes' },
     ]
+
     begin
       @payments = Payment.where(user_id: BSON::ObjectId.from_string(@user.id))
     rescue

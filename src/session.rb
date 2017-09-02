@@ -94,8 +94,7 @@ class SessionController < BaseController
       end
     end
 
-    if User.where(username: params[:username]).exists? ||
-        User.where(email: params[:email]).exists? ||
+    if User.where(email: params[:email]).exists? ||
         User.where(rut:params[:rut]).exists?
       redirect back, 'El usuario ya existe'
     end
@@ -107,7 +106,6 @@ class SessionController < BaseController
       User.create(
         username: params[:username],
         email: params[:email],
-        rut: params[:rut],
         passwd: {
             salt: s,
             hash: Digest::SHA2.new(512).hexdigest(p)

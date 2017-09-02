@@ -4,8 +4,19 @@ require 'slim'
 class IndexController < BaseController
   get '/' do
     @title = 'Inicio'
-    @projects = Project.where(status: 1)
-    @payments = Payment.find_by(status: 1)
+
+    begin
+      @payments = Payment.where(status: 1)
+    rescue
+      @payments = []
+    end
+
+    begin
+      @projects = Project.where(status: 1)
+    rescue
+      @projects = []
+    end
+
     slim :inicio
   end
 

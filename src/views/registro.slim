@@ -2,33 +2,43 @@ div.uk-text-center
   h2.title Regístrate en Onda Sonora
   h3.subtitle para financiar tu proyecto o colaborar en el de otros
 
-div.uk-flex-center [uk-grid]
-  div.uk-width-1-3
-    form [method="post" action="/signup"]
+form [method="post" action="/signup"]
+  div.uk-flex-center [uk-grid]
+    div.uk-width-1-3
+      h4 Datos personales
       div.uk-margin
-        input.uk-input [name="fullname" placeholder="Nombre completo" required]
+        label Nombre completo
+        input.uk-input [name="fullname" placeholder="Juan Pérez" required]
+        small Debe ser idéntico a como se muestra en tu cédula o pasaporte.
       div.uk-margin
-        input.uk-input [name="rut" placeholder="RUT o pasaporte" required]
+        label Nombre de usuario
+        input.uk-input [name="username" placeholder="Juanito" required]
+        small El nombre que será mostrado en tus proyectos. Puede ser tu nombre artístico.
+      h4 Datos de acceso
       div.uk-margin
+        label Email
+        input.uk-input [name="email" type="email" placeholder="juan@perez.cl" required]
+      div.uk-margin
+        label Contraseña
+        input.uk-input [name="password" type="password" placeholder="Debe contener al menos 6 carácteres" required]
+      h4 Dirección de residencia
+      div.uk-margin
+        label Región
         select.uk-select [name="region" required]
           option Selecciona una región
           - @region.each do |r|
             option value="#{r[:value]}" #{r[:name]}
       div.uk-margin
-        input.uk-input [name="city" placeholder="Ciudad" required]
+        label Ciudad
+        input.uk-input [name="city" required]
       div.uk-margin
-        input.uk-input [name="address" placeholder="Dirección" required]
-      hr
-      div.uk-margin
-        input.uk-input [name="username" placeholder="Nombre de usuario" required]
-      div.uk-margin
-        input.uk-input [name="email" type="email" placeholder="Correo electrónico" required]
-      div.uk-margin
-        input.uk-input [name="password" type="password" placeholder="Contraseña" required]
-      div.uk-margin
-        input.uk-checkbox [type="checkbox" required]
-        | &nbsp;He leído y acepto los
-        a href="#" &nbsp;términos y condiciones de uso
-        | .
-      div.uk-text-center
-        input.uk-button.uk-button-primary type="submit" value="Empezar a usar Onda Sonora"
+        label Dirección
+        input.uk-input [name="address" required]
+
+  div.uk-text-center.uk-margin
+    input.uk-checkbox [type="checkbox" required]
+    | &nbsp;He leído y acepto los
+    a href="#" &nbsp;términos y condiciones de uso
+    | .
+  div.uk-text-center
+    input.uk-button.uk-button-primary type="submit" value="Empezar a usar Onda Sonora"
